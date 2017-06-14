@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>浙江北鼎网络科技有限公司</title>
+
+  <%= csrf_meta_tags %>
+</head>
+
+
+<div class="container">
+  <div class="col-md-4 col-md-offset-4">
+    <div class="panel-body">
+      <h1>浙江北鼎</h1>
+      <%if flash[:alert]%>
+          <%=flash[:alert]%>
+      <% end %>
+
+      <%= form_tag sessions_path  do |f| %>
+          <div class="form-group">
+            <%= text_field_tag :name, params[:name], :placeholder=>"请输入用户名", :class=>"form-cotrol"  %>
+          </div>
+          <div class="form-group">
+            <%= password_field_tag :password, params[:password], :placeholder=>"请输入密码", :class=>"form-cotrol"  %>
+          </div>
+
+          <%= submit_tag '登录', :class=>"btn btn-success"%>
+
+
+      <% end %>
+    </div>
+  </div>
+</div>
