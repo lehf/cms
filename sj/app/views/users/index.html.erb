@@ -14,12 +14,13 @@
       <th>编号</th>
       <th>用户名</th>
 
-      <th>类型</th>
-      <th>状态</th>
+      <th>用户类型</th>
+      <th>用户状态</th>
       <th>数据类型</th>
       <th>网站域名</th>
-      <th>备注</th>
+      <th>备注信息</th>
       <th>创建时间</th>
+      <th>修改</th>
 
 
     </tr>
@@ -31,16 +32,32 @@
           <td><%= user.id %></td>
           <td><%= user.name %></td>
 
-          <td><%= user.type %></td>
-          <td><%= user.status %></td>
-          <td><%= user.datatype %></td>
+
+          <td><%if user.usertype==0 %>
+                <p class="text-success">普通</p>
+            <% else %>
+               <p class="text-danger">管理员</p>
+            <% end %>
+          </td>
+          <td><% if user.status %>
+               <p class="text-success">启用</p>
+            <% else %>
+                <p class="text-danger">禁用</p>
+            <% end %>
+          </td>
+          <td><%if user.datatype==0 %>
+                <p class="text-success">普通版</p>
+            <% elsif user.datatype==1 %>
+                <p class="text-primary">高级版</p>
+            <% else %>
+                <p class="text-danger">vip版</p>
+            <% end %>
+                </td>
           <td><%= user.website %></td>
           <td><%= user.description %></td>
           <td><%= user.created_at %></td>
-          <td><%= link_to "修改",edit_user_path(user) %></td>
-          <td><%= link_to "删除",users_path(user),
-                          :method=>:delete, :data=>{:confirm => "Sure?"}
-          %></td>
+          <td><%= link_to "修改",edit_user_path(user), :class => "btn btn-primary" %></td>
+
         </tr>
     <% end %>
     </tbody>

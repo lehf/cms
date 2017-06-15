@@ -1,2 +1,81 @@
-<h1>Users#edit</h1>
-<p>Find me in app/views/users/edit.html.erb</p>
+
+<div class="col-lg-12">
+  <h3 class="page-header">添加账户
+    <%= link_to "返回列表", users_path, :class => "btn btn-default"%>
+  </h3>
+</div>
+<div class="col-lg-12">
+<!--<form name="" class="" action="" method="post">-->
+<%= form_for @user do |suer| %>
+    <input type="hidden" name="user[password]" value="123456">
+    <div class="form-group">
+      <label for="">用户名</label>
+      <input type="text" class="form-control" id="" name="user[name]" value="<%= @user.name %>">
+    </div>
+    <div class="form-group">
+      <label>
+        用户类型
+      </label>
+      <label class="radio-inline">
+        <input type="radio" name="user[usertype]" <%= if @user.usertype==0 then checked="checked" end %> id="" value="0"> 普通
+      </label>
+      <label class="radio-inline">
+        <input type="radio" name="user[usertype]" <%= if @user.usertype==1 then checked="checked" end %> value="1"> 管理员
+      </label>
+    </div>
+    <div class="form-group">
+      <label>
+        用户状态
+      </label>
+      <label class="radio-inline">
+        <input type="radio" name="user[status]" <%= if @user.status then checked="checked" end %> value="false"> 禁用
+      </label>
+      <label class="radio-inline">
+        <input type="radio" name="user[status]" <%= if !@user.status then checked="checked" end %> value="true"> 启用
+      </label>
+    </div>
+    <div class="form-group">
+      <label>
+        数据类型
+      </label>
+      <label class="radio-inline">
+        <input type="radio" name="user[datatype]" <%= if @user.datatype==0 then checked="checked" end %> value="0"> 普通版
+      </label>
+      <label class="radio-inline">
+        <input type="radio" name="user[datatype]" <%= if @user.datatype==1 then checked="checked" end %> value="1"> 高级版
+      </label>
+      <label class="radio-inline">
+        <input type="radio" name="user[datatype]" <%= if @user.datatype==2 then checked="checked" end %> value="2"> vip版
+      </label>
+    </div>
+    <div class="form-group">
+      <label for="">网站地址</label>
+      <input type="text" class="form-control" id="" name="user[website]" value="<%= @user.website %>">
+    </div>
+    <div class="form-group">
+      <label for="">备注信息</label>
+      <input type="text" class="form-control" id="" name="user[description]" value="<%= @user.description %>">
+    </div>
+
+    <button type="submit" id="submit1" class="btn btn-primary">确认</button>
+    <%= link_to '取消', users_path  , :class => "btn btn-default" %>
+
+
+    <!--</form>-->
+
+<% end %>
+</div>
+<script>
+    document.querySelector('#submit1').onclick=function(){
+        if (confirm('确认修改?')){
+            return true
+        }else {
+            return false
+        }
+
+    }
+</script>
+
+
+
+
