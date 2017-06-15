@@ -4,10 +4,10 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
 
-  skip_before_action :user_authenticate
+  before_action :user_authenticate
 
   def current_user
-    session[:user_id] ?  User.find(session[:user_id]) : nil
+    session[:user_id] ? @current_user = User.find(session[:user_id]) : nil
   end
 
   private

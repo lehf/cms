@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
-  skip_before_action :user_authenticate
 
+  skip_before_action :user_authenticate
 
   def new
    render layout: nil

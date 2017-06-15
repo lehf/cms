@@ -1,8 +1,7 @@
 class UsersController < ApplicationController
+  before_action :permission, :except => [:edit_password,:update_password]
   def index
-
     @users = User.all.page(params[:page]).per(10)
-
   end
 
   def new
@@ -45,16 +44,17 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    @user = User.find(params[:id])
-    if @user.destroy
-      redirect_to users_path
-    else
-      # redirect_to users_path
-    end
+
   end
 
   private
   def user_params
     params.require(:user).permit(:name,:password, :usertype, :status, :datatype, :website, :description)
+  end
+
+  def permission
+    if current_user.usertype != 1
+      redirect_to root_path, :alert=>"权限不足"
+    end
   end
 end

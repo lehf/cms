@@ -11,17 +11,20 @@
       <span class="glyphicon glyphicon-list" aria-hidden="true"></span> 用户管理 <span class="caret"></span>
     </a>
     <ul class="dropdown-menu">
+
       <li>
         <% if current_user.datatype == 0||current_user.datatype == 2 %>
-          大数据
+          精准数据
         <% end %>
       </li>
       <li>
-        精准数据
+        <% if current_user.datatype == 1||current_user.datatype == 2 %>
+            大数据
+        <% end %>
       </li>
       <li>
         <% if current_user.usertype == 1 %>
-          账户管理
+          <%= link_to '账户管理', users_path %>
         <% end %>
       </li>
       <li>
