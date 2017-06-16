@@ -1,13 +1,13 @@
 
 <div class="col-lg-12">
-  <h3 class="page-header">添加账户
+  <h3 class="page-header">修改账户
     <%= link_to "返回列表", users_path, :class => "btn btn-default"%>
   </h3>
 </div>
 <div class="col-lg-12">
 <!--<form name="" class="" action="" method="post">-->
 <%= form_for @user do |suer| %>
-    <input type="hidden" name="user[password]" value="123456">
+    <!--<input type="hidden" name="user[password]" value="123456">-->
     <div class="form-group">
       <label for="">用户名</label>
       <p class="lead"><%= @user.name %></p>
@@ -57,7 +57,7 @@
       <input type="text" class="form-control" id="" name="user[description]" value="<%= @user.description %>">
     </div>
 
-    <button type="submit" id="submit1" class="btn btn-primary">确认</button>
+    <button type="submit" id="submit1" class="btn btn-primary">确认</button>&nbsp;&nbsp;&nbsp;&nbsp;
     <%= link_to '取消', users_path  , :class => "btn btn-default" %>
 
 

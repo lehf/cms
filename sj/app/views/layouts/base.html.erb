@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sj</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <!--<link rel="stylesheet" href="/layui/css/layui.css">-->
+  <!--<script src="/layui/layui.js"></script>-->
+  <%= csrf_meta_tags %>
+</head>
+<body class="<%="#{controller_name}-#{action_name}"%>" id="<%="#{controller_name}-#{action_name}"%>" data-controller="<%=controller_name.humanize%>" data-action="<%=action_name.humanize%>">
+
+<div class="container">
+
+  <%= render 'layouts/navbar' %>
+
+</div>
+<div class="container">
+
+
+  <%= render 'layouts/flash' %>
+  <%= yield %>
+</div>
+</body>
+</html>

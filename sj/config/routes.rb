@@ -4,6 +4,12 @@ Rails.application.routes.draw do
 
   resources :sessions, :only=>[:new,:create,:destroy]
 
+  get 'editpwd' => "users#edit_password"
+  post 'editpwd' => "users#update_password"
+  get 'resetpwd' => "users#reset_password"
+
+
+  resources :users, :only => [:edit, :update]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

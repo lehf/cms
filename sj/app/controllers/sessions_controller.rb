@@ -18,7 +18,7 @@ class SessionsController < ApplicationController
           redirect_to new_session_path
         end
       else
-        flash[:alert] = '登录失败!'
+        flash[:alert] = '请检查账户名和密码!'
         redirect_to new_session_path
       end
   end
