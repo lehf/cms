@@ -43,12 +43,14 @@ class UsersController < ApplicationController
     user = User.find_by(name:current_user.name).try(:authenticate,params[:oldpassword])
     if user
       if user.update_attributes(:password=>params[:password])
-        flash[:notice] = "修改成功"
-        redirect_to root_path
-        session
+        flash[:notice] = "修改成功，牢记新密码，请重新登录"
+        render 'sj/index'
+        session[:user_id] = nil
       else
         flash[:alert] = "修改失败，请联系管理员"
+
         redirect_to editpwd_path
+
       end
     else
       flash[:alert] = "原密码输入错误，忘记密码请联系管理员"
