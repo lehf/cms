@@ -1,5 +1,15 @@
 Rails.application.routes.draw do
 
+  get 'white_list/index'
+
+  get 'white_list/new'
+
+  get 'sj/index'
+
+  get 'sj/new'
+
+  get 'index/new'
+
   resources :users
 
   resources :sessions, :only=>[:new,:create,:destroy]
@@ -14,7 +24,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'index#index'
+  root 'sj#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

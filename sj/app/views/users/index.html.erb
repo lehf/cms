@@ -65,7 +65,7 @@
     </tbody>
   </table>
   <div class="page">
-    共<%= @users.count %>条数据
+    共<%= User.all.count %>条数据
     <%= paginate @users %>
   </div>
 </div>

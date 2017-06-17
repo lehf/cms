@@ -5,7 +5,7 @@ source 'https://gems.ruby-china.org/'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.4'
 # Use mysql as the database for Active Record
-gem 'mysql2'
+gem 'mysql2','~> 0.3.18'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -40,7 +40,7 @@ gem 'roo', '~> 2.5'
 gem 'roo-xls', '~> 1.0'
 
 
-
+gem 'mini_portile2', '~> 2.0'
 gem 'nokogiri', '~> 1.8'
 gem 'htmlentities', '~> 4.3', '>= 4.3.4'
 # bootstrap

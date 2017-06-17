@@ -49,7 +49,6 @@ class UsersController < ApplicationController
       else
         flash[:alert] = "修改失败，请联系管理员"
         redirect_to editpwd_path
-
       end
     else
       flash[:alert] = "原密码输入错误，忘记密码请联系管理员"
